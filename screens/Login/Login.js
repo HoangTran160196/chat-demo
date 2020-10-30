@@ -13,6 +13,7 @@ export default class Login extends React.Component {
             <View style={styles.container}>
                 <Text style={styles.header}>Login to your account</Text>
                 <LoginTextInput
+                    style={styles.emailInputText}
                     placeholder='Enter email address'
                     source='../../assets/img/emailIcon.png'
                 />
@@ -20,7 +21,7 @@ export default class Login extends React.Component {
                     placeholder='Enter password'
                     source='../../assets/img/passwordIcon.png'
                 />
-                <View>
+                <View style={styles.rememberAndForgotArea}>
                     <CheckBox
                         center
                         title='Click Here'
@@ -45,10 +46,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'lightblue',
-        flexDirection: 'column',
+        paddingHorizontal: PADDING_HORIZONTAL
     },
     header: {
-
+        fontFamily: 'Lato',
+        fontWeight: '700',
+        fontStyle: 'normal',
+        fontSize: 24,
+        lineHeight: 28.8,
+        color: '#fff',
+        marginTop: 100,
+        marginBottom: 32
+    },
+    rememberAndForgotArea: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    emailInputText: {
+        // marginBottom: 16
     },
     buttonLogin: {
         height: 48

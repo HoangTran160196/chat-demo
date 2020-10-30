@@ -5,9 +5,8 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 const LoginTextInput = props => {
     const { placeholder, source, style = {} } = props
     return (
-        <Input 
-            style={styles.loginTextInput}
-            containerStyle={styles.containerStyle}
+        <Input
+            containerStyle={[styles.containerStyle, style]}
             inputContainerStyle={styles.inputContainer}
             inputStyle={styles.input}
             leftIconContainerStyle={styles.iconContainer}
@@ -25,7 +24,8 @@ export default LoginTextInput
 
 const styles = StyleSheet.create({
     containerStyle: {
-        paddingHorizontal: 0
+        paddingHorizontal: 0,
+        margin: 0
     },
     inputContainer: {
         backgroundColor: '#fff',
@@ -42,13 +42,11 @@ const styles = StyleSheet.create({
        lineHeight: 22,
        color: '#B0B0B0',
        justifyContent: 'center',
-       backgroundColor: 'blue',
     },
     iconContainer: {
         padding: 0,
         marginRight: 6,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red',
     },
 })
