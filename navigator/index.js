@@ -6,28 +6,25 @@ import ScreenOne from '../screens/ScreenOne.js'
 import ScreenTwo from '../screens/ScreenTwo.js'
 import ScreenThree from '../screens/ScreenThree.js'
 import ScreenFour from '../screens/ScreenFour.js'
+import ScrollViewWithKeyBoard from '../screens/ScrollViewWithKeyBoard.js'
 import { GiftedChatExample } from '../screens/GiftedChatExample.js'
-import { Button, View, TextInput, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SearchHeader from '../component/headers/ListChatNavigation/SearchHeader.js'
-import Basic from '../screens/SwipeList.js'
+import TestComponent from '../screens/TestComponent.js'
+import Login from '../screens/Login/Login.js'
+
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
-
+const SCREEN = {
+    CHATS: 'CHATS',
+    BROADCAST: 'BROADCAST'
+}
 
 function configureRootTabOptions(navigation, route) {
-    console.log(route.name)
     return {
-        headerTitle: props => {
-            return (
-                <SearchHeader />
-            )
-        },
-        headerStyle: {
-            height: 116,
-            backgroundColor: 'rgb(0, 62, 94)'
-        }
+        headerShown: false
     }
 }
 
@@ -55,7 +52,7 @@ function configureGiftedChatExampleOptions(navigation) {
 function configureScreenOptions() {
     return {
         headerStyle: {
-            backgroundColor: 'rgb(0, 62, 94)'
+           backgroundColor: 'rgb(0, 62, 94)'
         }
     }
 }
@@ -64,11 +61,11 @@ function configureRootTabScreenOption(route) {
     return {
         tabBarIcon: ({focused, size, color}) => {
             let iconName;
-            switch (route.name) {
-                case 'Chats':
+            switch (route.name.toUpperCase()) {
+                case SCREEN.CHATS:
                     iconName = focused ? 'ios-information-circle' : 'ios-information-circle-outline'
                     break;
-                case 'Broadcast':
+                case SCREEN.BROADCAST:
                     iconName = focused ? 'ios-list-box' : 'ios-list'
                     break;
             }
@@ -79,40 +76,38 @@ function configureRootTabScreenOption(route) {
 
 function configureRootNavOneOptions(navigation, route) {
     return {
-        headerRight: () => name === 'ScreenOne' && (
-            <View style={{paddingRight: 8}}>
-                <Button 
-                    color="#fff"
-                    title="Add"
-                    onPress={() => navigation.navigate("ScreenThree")}
-                />
-            </View>
+        headerRight: () => route.name.toUpperCase() === SCREEN.CHATS && (
+            <TouchableOpacity 
+                style={{marginTop: -48, marginRight: 16}}
+                color="#fff"
+                title="Add"
+                onPress={() => navigation.navigate("ScreenThree")}
+            >
+                <Text style={{fontWeight:'600', fontSize: 18, color: 'white'}}>Add</Text>
+            </TouchableOpacity>
         ), 
-        title: route.params && route.params.name
+        headerTitle: props => {
+            console.log(props)
+            return (
+                <SearchHeader name={route.name}/>
+            )
+        },
+        headerStyle: {
+            height: 116,
+            backgroundColor: 'rgb(0, 62, 94)',
+        },
+        title: route.params && route.params.name,
     }
 }
 
 function RootNavOne() {
     return (
-        <Stack.Navigator
-            screenOptions={{
-                headerTintColor: "#fff",
-                headerTitleStyle: {
-                    fontWeight: "bold"
-                },
-                headerStyle: {
-                    // backgroundColor: "#f4511e"
-                    backgroundColor: 'red'
-                }
-            }}
-        >
-            
+        <Stack.Navigator>
             <Stack.Screen 
-                name='ScreenOne'
+                name='Chats'
                 component={ScreenOne} 
                 options={({ route, navigation }) => configureRootNavOneOptions(navigation, route)}  
             />
-         
         </Stack.Navigator>
     )
 }
@@ -120,7 +115,11 @@ function RootNavOne() {
 function RootNavTwo() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='BroadCast' component={ScreenThree} />
+            <Stack.Screen 
+                name='BroadCast' 
+                component={ScreenThree} 
+                options={({ route, navigation }) => configureRootNavOneOptions(navigation, route)}      
+            />
         </Stack.Navigator>
     )
 }
@@ -128,8 +127,7 @@ function RootNavTwo() {
 function RenderRootTab() {
     return (
         <Tab.Navigator
-            screenOptions={({route}) => configureRootTabScreenOption(route)
-            }
+            screenOptions={({route}) => configureRootTabScreenOption(route) }
             tabBarOptions={{
                 activeTintColor: 'tomato',
                 inactiveTintColor: 'gray'
@@ -156,8 +154,8 @@ export default class Navigator extends React.Component {
                     />
                     <Stack.Screen 
                         name="GiftedChatExample"
-                        component={GiftedChatExample} 
-                        options={({ navigation, route }) => configureGiftedChatExampleOptions(navigation)}
+                        component={Login} 
+                        // options={({ navigation, route }) => configureGiftedChatExampleOptions(navigation)}
                     />
                     <Stack.Screen name="ScreenFour" component={ScreenFour} />
                 </Stack.Navigator>  

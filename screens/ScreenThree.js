@@ -8,9 +8,14 @@ export default class ScreenTwo extends React.Component {
     constructor(props) {
         super()
         this.state = {
-            filter: ['All Status', 'Sent Date', 'Deliveries Rate'],
+            filter: [
+                {key: '1', data: 'All Status'},
+                {key: '2', data: 'Sent Date'},
+                {key: '3', data: 'Deliveries Rate'}
+            ],
             broadCast: [
                 {
+                    id: "1",
                     status: 'Schedule',
                     process: 0,
                     header: 'Orion promotion 2020', 
@@ -19,6 +24,7 @@ export default class ScreenTwo extends React.Component {
                     sentDate: '12.31.2020'
                 },
                 {
+                    id: "2",
                     status: 'In Process',
                     process: 70,
                     header: 'Orion promotion 2020', 
@@ -27,6 +33,59 @@ export default class ScreenTwo extends React.Component {
                     sentDate: '12.31.2020'
                 },
                 {
+                    id: "3",
+                    status: 'Complete',
+                    process: 100,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },
+                {
+                    id: "2",
+                    status: 'In Process',
+                    process: 70,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },
+                {
+                    id: "3",
+                    status: 'Complete',
+                    process: 100,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },{
+                    id: "2",
+                    status: 'In Process',
+                    process: 70,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },
+                {
+                    id: "3",
+                    status: 'Complete',
+                    process: 100,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },{
+                    id: "2",
+                    status: 'In Process',
+                    process: 70,
+                    header: 'Orion promotion 2020', 
+                    content: 'Lorem consequat eiusmod aute dolor occaecat est pariatur anim.',
+                    recipients: 10,
+                    sentDate: '12.31.2020'
+                },
+                {
+                    id: "3",
                     status: 'Complete',
                     process: 100,
                     header: 'Orion promotion 2020', 
@@ -40,14 +99,14 @@ export default class ScreenTwo extends React.Component {
 
     handleRenderFilterItem(item) {
         return (
-            <FilterItem content={item}/>
+            <FilterItem content={item.data}/>
         )
     }
 
     handleRenderBroadcastItem(item) {
         const {status, process, header, content, recipients, sentDate} = item
         return (
-            <BroadcastItem 
+            <BroadcastItem
                 process={process}
                 header={header}
                 content={content}

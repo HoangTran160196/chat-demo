@@ -6,15 +6,15 @@ const ListChatSwipeListView = (props) => {
     return (
         <View style={styles.rowBack}>
             <TouchableOpacity
+                onPress={props.archiveAction}
                 style={[styles.backRightBtn, styles.backRightBtnLeft]}
-                onPress={props.onClose}
             >
                 <Ionicons style={styles.rightButtonsIcon} name='ios-information-circle' size={22} color='white' />
                 <Text style={styles.backTextWhite}>Archive</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 style={[styles.backRightBtn, styles.backRightBtnRight]}
-                // onPress={() => deleteRow(rowMap, data.item.key)}
+                onPress={props.deleteAction}
             >
                 <Ionicons style={styles.rightButtonsIcon} name='ios-information-circle' size={22} color='white' />
                 <Text style={styles.backTextWhite}>Delete</Text>

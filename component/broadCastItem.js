@@ -16,7 +16,7 @@ const BroadcastItem = props => {
                 <View style={styles.statusHeader}>
                     <ProcessTag status={status}/>
                     <View style={styles.processPercentage}>
-                        <Text>{process}%</Text>
+                        <Text style={{fontSize: 14}}>{process}%</Text>
                     </View>
                 </View>
 
@@ -67,7 +67,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     processPercentage: {
-        padding: 8,
+        paddingHorizontal: 8, 
+        paddingVertical: 4,
         backgroundColor: 'rgb(233, 239, 243)',
         marginLeft: 8,
         borderRadius: 5

@@ -1,12 +1,12 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 const FilterItem = props => {
     const { content } = props
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container}>
             <Text style={styles.content}>{content}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -22,6 +22,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginRight: 8
     },
-    content: {
-    }
 })

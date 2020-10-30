@@ -73,7 +73,6 @@ export function GiftedChatExample() {
   }, [])
 
   const customBubleChat = useCallback((currentMessage) => {
-    // console.log(currentMessage.note)
     const { avatar, _id } = currentMessage.user
     const { text, note } = currentMessage
     
@@ -93,7 +92,7 @@ export function GiftedChatExample() {
 
   const handleRenderInputToolbar = useCallback((currentMessage) => {
     return (
-      <InputMessageArea sendMessage={() => onSend("message")}/>
+      <InputMessageArea />
     )
   })
 

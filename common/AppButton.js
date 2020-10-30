@@ -7,7 +7,6 @@ export default class AppButton extends React.Component {
     render() {
         const caption = this.props.caption && this.props.caption.toUpperCase()
         const { buttonTheme, captionTheme } = this.getTheme()
-        console.log(buttonTheme, captionTheme)
         return (
             <View style={[buttonTheme, captionTheme, this.props.style]}>
                 <Button 
