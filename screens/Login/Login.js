@@ -1,17 +1,23 @@
 import React from 'react'
-import { Input, CheckBox } from 'react-native-elements'
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { Dimensions, KeyboardAvoidingView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import LoginTextInput from './LoginTextInput.js'
 import LoginTextLink from './LoginTextLink.js'
 import GreenButton from './GreenButton.js'
+import LoginCheckbox from './LoginCheckbox.js'
 
+const height = Dimensions.get('window').height;
+console.log(height)
 const PADDING_HORIZONTAL = 48
 
 export default class Login extends React.Component {
     render() {
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView 
+                style={styles.container}
+                behavior={Platform.OS == "ios" ? "padding" : "height"}
+            >
                 <Text style={styles.header}>Login to your account</Text>
+
                 <LoginTextInput
                     style={styles.emailInputText}
                     placeholder='Enter email address'
@@ -21,13 +27,9 @@ export default class Login extends React.Component {
                     placeholder='Enter password'
                     source='../../assets/img/passwordIcon.png'
                 />
-                <View style={styles.rememberAndForgotArea}>
-                    <CheckBox
-                        center
-                        title='Click Here'
-                        checkedIcon='dot-circle-o'
-                        uncheckedIcon='circle-o'
-                        // checked={this.state.checked}
+
+                <View style={styles.rememberAndForgotPasswordArea}>
+                    <LoginCheckbox
                     />
                     <LoginTextLink text='Forgot password?'/>
                 </View>
@@ -37,7 +39,7 @@ export default class Login extends React.Component {
                     <Text>Don’t have an account? </Text>
                     <LoginTextLink text='Signup'/>
                 </Text>
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -55,16 +57,18 @@ const styles = StyleSheet.create({
         fontSize: 24,
         lineHeight: 28.8,
         color: '#fff',
-        marginTop: 100,
+        marginTop: 208,
         marginBottom: 32
     },
-    rememberAndForgotArea: {
+    rememberAndForgotPasswordArea: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginTop: 18,
+        marginBottom: 26
     },
     emailInputText: {
-        // marginBottom: 16
+        marginBottom: 16
     },
     buttonLogin: {
         height: 48

@@ -155,6 +155,9 @@ export default class Navigator extends React.Component {
                     <Stack.Screen 
                         name="GiftedChatExample"
                         component={Login} 
+                        options={{
+                            headerShown: false
+                        }}
                         // options={({ navigation, route }) => configureGiftedChatExampleOptions(navigation)}
                     />
                     <Stack.Screen name="ScreenFour" component={ScreenFour} />

@@ -25,13 +25,13 @@ export default LoginTextInput
 const styles = StyleSheet.create({
     containerStyle: {
         paddingHorizontal: 0,
-        margin: 0
+        margin: 0,
+        height: 48,
     },
     inputContainer: {
         backgroundColor: '#fff',
         borderRadius: 4,
         paddingHorizontal: 16,
-        height: 48,
         borderBottomWidth: 0,
     },
     input: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
        lineHeight: 22,
        color: '#B0B0B0',
        justifyContent: 'center',
+       height: 48,
     },
     iconContainer: {
         padding: 0,
