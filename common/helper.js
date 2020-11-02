@@ -9,24 +9,41 @@ const THEME = {
     RECEIVER: 'RECEIVER'
 }
 
+const COLOR = {
+    SCHEDULE: '#4B91FC',
+    IN_PROCESS: '#1BD2ED',
+    COMPLETE: '#55D435'
+}
+
+const IMAGE_STATE = {
+    COMPLETE: require('../assets/img/completed.png'),
+    IN_PROGRESS: require('../assets/img/inProgress.png'),
+    CALENDAR: require('../assets/img/calendar.png'),
+}
 
 export function getStatusTheme(status) {
-    let backgroundColorTheme, icon;
+    let color, backgroundColor, borderColor, icon;
     switch (status.toUpperCase()) {
         case STATUS.SCHEDULE:
-            backgroundColorTheme = { backgroundColor: 'rgb(14, 149, 246)' }
-            icon = 'ios-information-circle'
+            borderColor = { borderColor: COLOR.SCHEDULE }
+            backgroundColor = { backgroundColor: COLOR.SCHEDULE }
+            color = { color: COLOR.SCHEDULE }
+            icon = IMAGE_STATE.CALENDAR
             break
         case STATUS.IN_PROCESS: 
-            backgroundColorTheme = { backgroundColor: 'rgb(0, 213, 235)' }
-            icon = 'ios-information-circle-outline'
+            borderColor = { borderColor: COLOR.IN_PROCESS }
+            backgroundColor = { backgroundColor: COLOR.IN_PROCESS }
+            color = { color: COLOR.IN_PROCESS}
+            icon = IMAGE_STATE.IN_PROGRESS
             break
         case STATUS.COMPLETE:
-            backgroundColorTheme = { backgroundColor: 'rgb(26, 213, 77)' }
-            icon = 'ios-list-box'
+            borderColor = { borderColor: COLOR.COMPLETE }
+            backgroundColor = { backgroundColor: COLOR.COMPLETE }
+            color = { color: COLOR.COMPLETE}
+            icon = IMAGE_STATE.COMPLETE
             break
     }
-    return { backgroundColorTheme, icon }
+    return { color, backgroundColor, borderColor, icon }
 }
 
 

@@ -13,7 +13,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import SearchHeader from '../component/headers/ListChatNavigation/SearchHeader.js'
 import TestComponent from '../screens/TestComponent.js'
 import Login from '../screens/Login/Login.js'
-
+import BroadCastList from '../screens/BroadCast/BroadCastList.js'
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +24,7 @@ const SCREEN = {
 
 function configureRootTabOptions(navigation, route) {
     return {
-        headerShown: false
+        headerShown: true
     }
 }
 
@@ -135,7 +135,7 @@ function RenderRootTab() {
         >
             <Tab.Screen name="Chats" component={RootNavOne} options={{ tabBarBadge: 3 }}
             />
-            <Tab.Screen name="Broadcast" component={RootNavTwo} />
+            <Tab.Screen name="Broadcast" component={BroadCastList} />
         </Tab.Navigator>
     )
 }
