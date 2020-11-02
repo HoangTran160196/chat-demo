@@ -4,11 +4,12 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 
 const LoginCheckbox = props => {
+    const { title } = props
     return (
         <CheckBox
             center
-            title='Click Here'
-            checkedIcon={<Image source={require('../../assets/img/checkbox-uncheck.png')} />}
+            title={title}
+            checkedIcon={<Image source={require('../../assets/img/checkbox-uncheck.svg')} />}
             uncheckedIcon={<Image source={require('../../assets/img/checkbox-uncheck.png')} />}
             containerStyle={styles.containerStyle}
             textStyle={styles.textStyle}
@@ -24,15 +25,16 @@ const styles = StyleSheet.create({
         // reset margin, padding default
         margin: 0,
         padding: 0,
-        marginLeft: 0
+        marginLeft: 0,
+        backgroundColor: 'transparent',
+        borderWidth: 0
     },
     textStyle: {
         color: '#fff',
         fontWeight: 'normal',
         fontSize: 12,
         lineHeight: 14,
-        // reset margin left, right default
         marginLeft: 5,
-        marginRight: 0
+        marginRight: 0 // reset default margin right default
     }
 })

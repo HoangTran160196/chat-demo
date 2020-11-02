@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         borderRadius: 4
     },
     buttonTitle: {
-        fontFamily: 'Lato',
+        fontFamily: 'Lato_700Bold',
         fontWeight: '700',
         fontSize: 'normal',
         fontSize: 16,

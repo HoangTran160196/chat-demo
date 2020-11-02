@@ -13,9 +13,10 @@ const LoginTextInput = props => {
             placeholder={placeholder}
             leftIcon={
                 <Image
-                    source={require('../../assets/img/emailIcon.png')}
+                    source={source}
                 />
             }
+            placeholderTextColor='#B0B0B0'
         />
     )
 }
@@ -35,12 +36,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0,
     },
     input: {
-       fontFamily: 'Lato',
+       fontFamily: 'Lato_400Regular',
        fontStyle: 'normal',
        fontWeight: 'normal',
        fontSize: 16,
        lineHeight: 22,
-       color: '#B0B0B0',
        justifyContent: 'center',
        height: 48,
     },

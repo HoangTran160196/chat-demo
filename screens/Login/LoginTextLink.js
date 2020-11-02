@@ -13,7 +13,7 @@ export default LoginTextLink
 
 const styles = StyleSheet.create({
     text: {
-        fontFamily: 'Lato',
+        fontFamily: 'Lato_400Regular',
         fontWeight: '400',
         fontStyle: 'normal',
         fontSize: 14,
