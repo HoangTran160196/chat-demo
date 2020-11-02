@@ -4,13 +4,13 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 
 const LoginCheckbox = props => {
-    const { title } = props
+    const { title, checkedIcon, uncheckedIcon } = props
     return (
         <CheckBox
             center
             title={title}
-            checkedIcon={<Image source={require('../../assets/img/checkbox-uncheck.svg')} />}
-            uncheckedIcon={<Image source={require('../../assets/img/checkbox-uncheck.png')} />}
+            checkedIcon={<Image source={checkedIcon} />}
+            uncheckedIcon={<Image source={uncheckedIcon} />}
             containerStyle={styles.containerStyle}
             textStyle={styles.textStyle}
             // checked={this.state.checked}
