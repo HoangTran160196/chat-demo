@@ -123,6 +123,7 @@ export default class BroadCastList extends React.Component {
             <View style={styles.container}>
                 <View style={styles.filterList}>
                     <FlatList 
+                        showsHorizontalScrollIndicator={false}
                         horizontal={true}
                         data={filter}
                         renderItem={({item}) => this.handleRenderFilterItem(item)}
@@ -132,9 +133,9 @@ export default class BroadCastList extends React.Component {
                     <FlatList 
                         data={broadCast}
                         renderItem={({item}) => this.handleRenderBroadcastItem(item)}
+                        showsVerticalScrollIndicator ={false}
                     />
                 </View>
-                
             </View>
         )
     }
