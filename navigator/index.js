@@ -14,6 +14,7 @@ import SearchHeader from '../component/headers/ListChatNavigation/SearchHeader.j
 import TestComponent from '../screens/TestComponent.js'
 import Login from '../screens/Login/Login.js'
 import BroadCastList from '../screens/BroadCast/BroadCastList.js'
+import AddNewBroadCast from '../screens/BroadCast/AddNewBroadCast/AddNewBroadCast.js'
 const Stack = createStackNavigator()
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +32,16 @@ function configureRootTabOptions(navigation, route) {
                 color="#fff"
                 title="Login"
                 onPress={() => navigation.navigate("Login")}
+            >
+                <Text style={{fontWeight:'600', fontSize: 18, color: 'white'}}>Add</Text>
+            </TouchableOpacity>
+        ),
+        headerLeft: () => (
+            <TouchableOpacity 
+                // style={{marginTop: -48, marginRight: 16}}
+                color="#fff"
+                title="Add new"
+                onPress={() => navigation.navigate("AddNewBroadCast")}
             >
                 <Text style={{fontWeight:'600', fontSize: 18, color: 'white'}}>Add</Text>
             </TouchableOpacity>
@@ -171,6 +182,8 @@ export default class Navigator extends React.Component {
                         // options={({ navigation, route }) => configureGiftedChatExampleOptions(navigation)}
                     />
                     <Stack.Screen name="ScreenFour" component={ScreenFour} />
+                    <Stack.Screen name="AddNewBroadCast" component={AddNewBroadCast} />
+                    
                 </Stack.Navigator>  
             </NavigationContainer>
         )

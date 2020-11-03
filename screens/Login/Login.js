@@ -66,6 +66,7 @@ export default class Login extends React.Component {
                         <LoginTextInput
                             placeholder='Enter password'
                             source={IMAGE.PASSWORD_ICON}
+                            secureTextEntry={true}
                         />
 
                         <View style={styles.rememberAndForgotPasswordArea}>

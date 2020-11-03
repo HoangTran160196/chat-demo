@@ -4,7 +4,7 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri'
 
 const LoginTextInput = props => {
-    const { placeholder, source, style = {} } = props
+    const { placeholder, source, style = {}, secureTextEntry } = props
     return (
         <Input
             containerStyle={[styles.containerStyle, style]}
@@ -16,6 +16,7 @@ const LoginTextInput = props => {
                 <SvgUri source={source} />
             }
             placeholderTextColor='#B0B0B0'
+            secureTextEntry={secureTextEntry}
         />
     )
 }
