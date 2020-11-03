@@ -1,6 +1,7 @@
 import React from 'react'
 import { Input } from 'react-native-elements'
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import SvgUri from 'react-native-svg-uri'
 
 const LoginTextInput = props => {
     const { placeholder, source, style = {} } = props
@@ -12,9 +13,7 @@ const LoginTextInput = props => {
             leftIconContainerStyle={styles.iconContainer}
             placeholder={placeholder}
             leftIcon={
-                <Image
-                    source={source}
-                />
+                <SvgUri source={source} />
             }
             placeholderTextColor='#B0B0B0'
         />
@@ -49,5 +48,7 @@ const styles = StyleSheet.create({
         marginRight: 6,
         justifyContent: 'center',
         alignItems: 'center',
+        width: 24,
+        height: 24,
     },
 })

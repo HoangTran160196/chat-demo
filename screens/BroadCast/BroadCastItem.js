@@ -1,12 +1,13 @@
 import React from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Image, Text, StyleSheet } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ProcessTag from './ProcessTag.js'
 import { getStatusTheme } from '../../common/helper.js'
+import SvgUri from 'react-native-svg-uri';
 
 const IMAGE = {
-    RECIPIENTS: require('../../assets/img/user.png'),
-    DATE: require('../../assets/img/calendar-gray.png')
+    RECIPIENTS: require('../../assets/img/user.svg'),
+    DATE: require('../../assets/img/calendar-gray.svg')
 }
 
 const BroadCastItem = props => {
@@ -30,14 +31,14 @@ const BroadCastItem = props => {
 
                 <View style={styles.bottomContainer}>
                     <View style={styles.bottomContent}>
-                        <Image style={styles.tinyIcon} source={IMAGE.RECIPIENTS}/>
+                        <SvgUri style={styles.tinyIcon} width="16" height="16" source={IMAGE.RECIPIENTS} />
                         <Text style={[styles.fontLato700Bold, styles.bottomText]}>Recipients: 
                             <Text style={styles.bottomRightText}> {recipients}</Text>
                         </Text>
                     </View>
                     <View style={styles.smallSeparator}></View>
                     <View style={styles.bottomContent}>
-                        <Image style={styles.tinyIcon} source={IMAGE.DATE}/>
+                        <SvgUri style={styles.tinyIcon} width="16" height="16" source={IMAGE.DATE} />
                         <Text style={[styles.fontLato700Bold, styles.bottomText]}>Sent date: 
                             <Text style={styles.bottomRightText}> {sentDate}</Text>
                         </Text>
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         padding: 16,
         paddingLeft: 13,
+        paddingBottom: 12,
     },
     statusHeader: {
         flexDirection: 'row',

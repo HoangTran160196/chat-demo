@@ -24,7 +24,17 @@ const SCREEN = {
 
 function configureRootTabOptions(navigation, route) {
     return {
-        headerShown: true
+        headerShown: true,
+        headerRight: () => (
+            <TouchableOpacity 
+                // style={{marginTop: -48, marginRight: 16}}
+                color="#fff"
+                title="Login"
+                onPress={() => navigation.navigate("Login")}
+            >
+                <Text style={{fontWeight:'600', fontSize: 18, color: 'white'}}>Add</Text>
+            </TouchableOpacity>
+        )
     }
 }
 
@@ -153,7 +163,7 @@ export default class Navigator extends React.Component {
                         options={({navigation, route}) => configureRootTabOptions(navigation, route)}
                     />
                     <Stack.Screen 
-                        name="GiftedChatExample"
+                        name="Login"
                         component={Login} 
                         options={{
                             headerShown: false

@@ -17,10 +17,10 @@ const ratioHeight = 278 / 667
 const ratio = 375 / 667
 const PADDING_HORIZONTAL = 48
 const IMAGE = {
-    EMAIL_ICON: require('../../assets/img/emailIcon.png'),
-    PASSWORD_ICON: require('../../assets/img/passwordIcon.png'),
+    EMAIL_ICON: require('../../assets/img/emailIcon.svg'),
+    PASSWORD_ICON: require('../../assets/img/passwordIcon.svg'),
     BACKGROUND: require('../../assets/img/loginBackground.png'),
-    CHECKBOX_UNCHECKED: require('../../assets/img/checkbox-uncheck.png'),
+    CHECKBOX_UNCHECKED: require('../../assets/img/checkbox-uncheck.svg'),
 }
 
 export default class Login extends React.Component {

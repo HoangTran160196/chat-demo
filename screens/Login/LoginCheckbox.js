@@ -1,7 +1,7 @@
 import React from 'react'
-import { Input } from 'react-native-elements'
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { CheckBox } from 'react-native-elements'
+import SvgUri from 'react-native-svg-uri'
 
 const LoginCheckbox = props => {
     const { title, checkedIcon, uncheckedIcon } = props
@@ -9,8 +9,8 @@ const LoginCheckbox = props => {
         <CheckBox
             center
             title={title}
-            checkedIcon={<Image source={checkedIcon} />}
-            uncheckedIcon={<Image source={uncheckedIcon} />}
+            checkedIcon={<SvgUri source={checkedIcon}/>}
+            uncheckedIcon={<SvgUri source={uncheckedIcon} />}
             containerStyle={styles.containerStyle}
             textStyle={styles.textStyle}
             // checked={this.state.checked}

@@ -16,9 +16,9 @@ const COLOR = {
 }
 
 const IMAGE_STATE = {
-    COMPLETE: require('../assets/img/completed.png'),
-    IN_PROGRESS: require('../assets/img/inProgress.png'),
-    CALENDAR: require('../assets/img/calendar.png'),
+    COMPLETE: require('../assets/img/completed.svg'),
+    IN_PROGRESS: require('../assets/img/inProgress.svg'),
+    CALENDAR: require('../assets/img/calendar.svg'),
 }
 
 export function getStatusTheme(status) {
