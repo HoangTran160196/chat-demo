@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StatusBar,
          Dimensions,
          View,
@@ -23,73 +23,62 @@ const IMAGE = {
     CHECKBOX_UNCHECKED: require('../../assets/img/checkbox-uncheck.svg'),
 }
 
-export default class Login extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            toScroll: false
-        }
+export default function Login(props) {
+    const [toScroll, setToScroll] = useState(false)
+
+    const _keyboardDidShow = () => {
+        setToScroll(true)
     }
 
-    _keyboardDidShow () {
-        this.setState({ toScroll: true });
+    const _keyboardDidHide = () => {
+        setToScroll(false)
     }
 
-    _keyboardDidHide () {
-        this.setState({ toScroll: false });
-    }
-    test() {
-        console.log(this.props)
-        return {}
-    }
+    return (
+        <KeyboardAwareScrollView 
+            style={styles.container}
+            enableOnAndroid={true}
+            scrollEnabled={toScroll}
+            onKeyboardDidShow={() => _keyboardDidShow()}
+            onKeyboardDidHide={() => _keyboardDidHide()}
+        >
+            <StatusBar hidden />
+            <ImageBackground source={IMAGE.BACKGROUND} style={styles.background}> 
+                <View style={styles.contentContainer}>
+                    <Text style={styles.header}>Login to your account</Text>
 
-    render() {
-        const { toScroll } = this.state
-        return (
-            <KeyboardAwareScrollView 
-                style={styles.container}
-                enableOnAndroid={true}
-                scrollEnabled={toScroll}
-                onKeyboardDidShow={() => this._keyboardDidShow()}
-                onKeyboardDidHide={() => this._keyboardDidHide()}
-            >
-                <StatusBar hidden />
-                <ImageBackground source={IMAGE.BACKGROUND} style={styles.background}> 
-                    <View style={styles.contentContainer}>
-                        <Text style={styles.header}>Login to your account</Text>
+                    <LoginTextInput
+                        style={styles.emailInputText}
+                        placeholder='Enter email address'
+                        source={IMAGE.EMAIL_ICON}
+                    />
+                    <LoginTextInput
+                        placeholder='Enter password'
+                        source={IMAGE.PASSWORD_ICON}
+                        secureTextEntry={true}
+                    />
 
-                        <LoginTextInput
-                            style={styles.emailInputText}
-                            placeholder='Enter email address'
-                            source={IMAGE.EMAIL_ICON}
+                    <View style={styles.rememberAndForgotPasswordArea}>
+                        <LoginCheckbox
+                            title='Remember me'
+                            checkedIcon={IMAGE.CHECKBOX_UNCHECKED}
+                            uncheckedIcon={IMAGE.CHECKBOX_UNCHECKED}
                         />
-                        <LoginTextInput
-                            placeholder='Enter password'
-                            source={IMAGE.PASSWORD_ICON}
-                            secureTextEntry={true}
-                        />
-
-                        <View style={styles.rememberAndForgotPasswordArea}>
-                            <LoginCheckbox
-                                title='Remember me'
-                                checkedIcon={IMAGE.CHECKBOX_UNCHECKED}
-                                uncheckedIcon={IMAGE.CHECKBOX_UNCHECKED}
-                            />
-                            <LoginTextLink text='Forgot password?'/>
-                        </View>
-
-                        <GreenButton title='Login' style={styles.buttonLogin}/>
-
-                        <Text style={styles.bottomText}>
-                            <Text style={styles.bottomLeftText}>Don’t have an account? </Text>
-                            <LoginTextLink text='Signup'/>
-                        </Text>
+                        <LoginTextLink text='Forgot password?'/>
                     </View>
-                    
-                </ImageBackground>
-            </KeyboardAwareScrollView>
-        )
-    }
+
+                    <GreenButton title='Login' style={styles.buttonLogin}/>
+
+                    <Text style={styles.bottomText}>
+                        <Text style={styles.bottomLeftText}>Don’t have an account? </Text>
+                        <LoginTextLink text='Signup'/>
+                    </Text>
+                </View>
+                
+            </ImageBackground>
+        </KeyboardAwareScrollView>
+    )
+    
 }
 
 const styles = StyleSheet.create({

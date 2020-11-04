@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, TouchableOpacity, StyleSheet,  } from 'react-native'
 
-const GreenButton = props => {
+export default function GreenButton(props) {
     const { title, style } = props
     return (
         <TouchableOpacity style={[styles.buttonContainer, style]}>
@@ -9,8 +9,6 @@ const GreenButton = props => {
         </TouchableOpacity>
     )
 }
-
-export default GreenButton
 
 const styles = StyleSheet.create({
     buttonContainer: {

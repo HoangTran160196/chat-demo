@@ -1,9 +1,9 @@
 import React from 'react'
 import { Input } from 'react-native-elements'
-import { View, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri'
 
-const LoginTextInput = props => {
+export default function LoginTextInput(props) {
     const { placeholder, source, style = {}, secureTextEntry } = props
     return (
         <Input
@@ -20,8 +20,6 @@ const LoginTextInput = props => {
         />
     )
 }
-
-export default LoginTextInput
 
 const styles = StyleSheet.create({
     containerStyle: {

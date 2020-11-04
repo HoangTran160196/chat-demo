@@ -8,7 +8,7 @@ const IMAGE = {
     DATE: require('../../assets/img/calendar-gray.svg')
 }
 
-const BroadCastItem = props => {
+export default function BroadCastItem(props) {
     const { status, process, header, content, recipients, sentDate } = props
     const { backgroundColor } = getStatusTheme(status)
     return (
@@ -45,8 +45,6 @@ const BroadCastItem = props => {
         </View>
     )
 }
-
-export default BroadCastItem
 
 const styles = StyleSheet.create({
     container: {

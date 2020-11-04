@@ -1,6 +1,5 @@
 import React from 'react'
-import { ScrollView, View, Image, Text, StyleSheet } from 'react-native'
-import SvgUri from 'react-native-svg-uri';
+import { StyleSheet } from 'react-native'
 import BroadCastName from './BroadCastName.js'
 import BroadCastRecipient from './BroadCastRecipient.js'
 import BroadCastTimeSetting from './BroadCastTimeSetting.js'

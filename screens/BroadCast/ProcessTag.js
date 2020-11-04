@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native'
 import { getStatusTheme } from '../../common/helper.js'
 import SvgUri from 'react-native-svg-uri';
 
-const ProcessTag = props => {
+export default function ProcessTag(props){
     const { status } = props
     const { borderColor, icon , color} = getStatusTheme(status)
     return (
@@ -13,8 +13,6 @@ const ProcessTag = props => {
         </View>
     )
 }
-
-export default ProcessTag
 
 const styles = StyleSheet.create({
     container: {

@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
-import SvgUri from 'react-native-svg-uri';
 import BroadCastButton from './BroadCastButton.js'
 import BroadCastDropdown from './BroadCastDropdown.js'
 
@@ -13,7 +12,7 @@ export default function BroadCastTimeSetting(props) {
     const { title, style } = props
     return (
         <View style={[styles.container, style]}>
-            <Text style={styles.header}>Recipient</Text>
+            <Text style={styles.header}>Time Setting</Text>
             <View style={styles.dottedSeparator}></View>
             <BroadCastButton 
                 title='Send Now'

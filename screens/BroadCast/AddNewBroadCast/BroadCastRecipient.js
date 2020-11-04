@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
-import SvgUri from 'react-native-svg-uri';
 import TelveroTextInput from './common/TelveroTextInput.js'
 import BroadCastDropdown from './BroadCastDropdown.js'
 import TelveroAddingTags from './common/TelveroAddingTags.js'

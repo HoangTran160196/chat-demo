@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import TelveroTextInput from './common/TelveroTextInput.js'
 
 export default function BroadCastName(props) {

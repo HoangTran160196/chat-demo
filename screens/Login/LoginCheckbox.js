@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 import SvgUri from 'react-native-svg-uri'
 
-const LoginCheckbox = props => {
+export default function LoginCheckbox(props) {
     const { title, checkedIcon, uncheckedIcon } = props
     return (
         <CheckBox
@@ -17,8 +17,6 @@ const LoginCheckbox = props => {
         />
     )
 }
-
-export default LoginCheckbox
 
 const styles = StyleSheet.create({
     containerStyle: {

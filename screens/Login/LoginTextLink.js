@@ -1,15 +1,12 @@
 import React from 'react'
-import { Input } from 'react-native-elements'
-import { Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 
-const LoginTextLink = props => {
+export default function LoginTextLink (props) {
     const { text } = props
     return (
         <Text style={styles.text}>{text}</Text>
     )
 }
-
-export default LoginTextLink
 
 const styles = StyleSheet.create({
     text: {

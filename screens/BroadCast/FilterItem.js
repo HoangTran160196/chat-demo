@@ -6,7 +6,7 @@ const IMAGE = {
     PLUS: require('../../assets/img/plus.svg')
 }
 
-const FilterItem = props => {
+export default function FilterItem(props) {
     const { content } = props
     return (
         <TouchableOpacity style={styles.container}>
@@ -15,8 +15,6 @@ const FilterItem = props => {
         </TouchableOpacity>
     )
 }
-
-export default FilterItem
 
 const styles = StyleSheet.create({
     container: {

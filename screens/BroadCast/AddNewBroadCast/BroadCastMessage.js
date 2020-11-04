@@ -1,13 +1,13 @@
 import React from 'react'
-import { TextInput, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import TelveroTextInput from './common/TelveroTextInput.js'
 export default function BroadCastMessage(props) {
     const { style } = props
     return (
         <View style={[styles.containerStyle, style]}>
             <TelveroTextInput 
-                label='Broadcast Name'
-                placeholder='Enter broadcast name'
+                label='Message'
+                placeholder='Enter message'
                 placeholderTextColor='#B0B0B0'
                 inputContainer={styles.inputContainer}
                 inputStyle={styles.inputStyle}
