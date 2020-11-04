@@ -9,31 +9,33 @@ const IMAGE = {
 function TelveroTags(props) {
     const { tag } = props
     return (
-            <Text style={{color: 'red'}}>{tag}</Text>
-        
+        <View style={styles.tagIconContainer}>
+            <Text style={styles.tagContent}>{tag}</Text>
+        </View>
     )
 }
 
 export default function TelveroAddingTags(props) {
     const { label, containerStyle } = props
-    const [listTags, addingTag] = useState([])
-    const handleRenderFilterItem = (item) => ( <TelveroTags tag={item.data}/> )
-    let id = 0
+    const [listTags, addingTag] = useState([
+        {id: 1, data: 'TMA'},
+        {id: 2, data: 'Telvero'},
+        {id: 3, data: 'hoang'},
+        {id: 4, data: 'Vip Customer'},
+        {id: 5, data: 'Third party'},
+        {id: 6, data: 'hoang'},
+        {id: 7, data: 'hoang'},
+    ])
+
     return (
         <View style={containerStyle}>
             <Text style={styles.label}>{label}</Text>
-            <View>
-                {/* <FlatList 
-                    numColumns = {0}
-                    // columnWrapperStyle={{paddingVertical: 4}}
-                    showsHorizontalScrollIndicator={false}
-                    data={listTags}
-                    renderItem={({item}) => handleRenderFilterItem(item)}
-                /> */}
+            <View style={styles.tagMainContainer}>
+                { listTags.map(tag => <TelveroTags tag={tag.data}/>)}
                 <TouchableOpacity
                     onPress={() => addingTag([...listTags, {id: id++, data: 'Hoang'}])}
                 >
-                    <SvgUri style={styles.tinyIcon} source={IMAGE.ADDING} />
+                    <SvgUri source={IMAGE.ADDING} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -48,7 +50,27 @@ const styles = StyleSheet.create({
         color: '#333333',
         marginBottom: 3
     },
-    tinyIcon: {
-        marginTop: 5
+    tagMainContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center'
+    },
+    // tag icon
+    tagIconContainer: {
+        height: 30,
+        paddingHorizontal: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderRadius: 100,
+        borderColor: '#E0E0E0',
+        marginRight: 8,
+        marginTop: 8
+    },
+    tagContent: {
+        fontFamily: 'Lato_400Regular',
+        fontSize: 14,
+        lineHeight: 20,
+        color: '#5E5E5E'
     }
 })

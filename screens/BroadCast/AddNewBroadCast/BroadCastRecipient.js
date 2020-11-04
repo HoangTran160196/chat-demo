@@ -1,6 +1,5 @@
 import React from 'react'
-import { View, Image, Text, StyleSheet } from 'react-native'
-import TelveroTextInput from './common/TelveroTextInput.js'
+import { View, Text, StyleSheet } from 'react-native'
 import BroadCastDropdown from './BroadCastDropdown.js'
 import TelveroAddingTags from './common/TelveroAddingTags.js'
 import BroadCastTextInform from '../BroadCastTextInform.js'
@@ -10,16 +9,15 @@ const IMAGE = {
 }
 
 export default function BroadCastRecipient(props) {
-    const { title, style } = props
+    const { style } = props
     return (
         <View style={[styles.container, style]}>
             <Text style={styles.header}>Recipient</Text>
             <View style={styles.dottedSeparator}></View>
-            <TelveroTextInput 
-                containerStyle={styles.marginTop}
+            <BroadCastDropdown 
+                style={styles.marginTop}
                 label='Individuals'
                 placeholder='Enter phone numbers'
-                placeholderTextColor='#B0B0B0'
             />
             <BroadCastDropdown 
                 style={styles.marginTop}

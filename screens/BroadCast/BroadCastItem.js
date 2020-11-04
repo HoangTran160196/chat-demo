@@ -9,10 +9,10 @@ const IMAGE = {
 }
 
 export default function BroadCastItem(props) {
-    const { status, process, header, content, recipients, sentDate } = props
+    const { id, status, process, header, content, recipients, sentDate } = props
     const { backgroundColor } = getStatusTheme(status)
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, {marginTop: id === '1' ? 16: 0}]}>
             <View style={[styles.flag, backgroundColor]}></View>
             <View style={styles.contentContainer}>
 

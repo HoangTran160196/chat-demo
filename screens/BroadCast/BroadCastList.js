@@ -100,9 +100,10 @@ export default function BroadCastList() {
     }
 
     const handleRenderBroadcastItem = (item) => {
-        const {status, process, header, content, recipients, sentDate} = item
+        const {id,status, process, header, content, recipients, sentDate} = item
         return (
             <BroadCastItem
+                id={id}
                 process={process}
                 header={header}
                 content={content}
@@ -149,6 +150,6 @@ const styles = StyleSheet.create({
     broadCast: {
         flex: 1,
         backgroundColor: 'rgb(233, 239, 243)',
-        padding: 16,
+        paddingHorizontal: 16,
     }
 })
