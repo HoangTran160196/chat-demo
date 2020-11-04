@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Image, Text, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import BroadCastButton from './BroadCastButton.js'
 import BroadCastDropdown from './BroadCastDropdown.js'
 
@@ -9,7 +9,10 @@ const IMAGE = {
 }
 
 export default function BroadCastTimeSetting(props) {
-    const { title, style } = props
+    // timeSettingButtonChoosen = true => sent late button is choosen, 
+    // ortherwise sent now is choosen
+    const [timeSettingButtonChoosen, chooseTimeSettingKind] = useState(false)
+    const { style } = props
     return (
         <View style={[styles.container, style]}>
             <Text style={styles.header}>Time Setting</Text>
@@ -19,22 +22,28 @@ export default function BroadCastTimeSetting(props) {
                 iconChecked={IMAGE.RADIO_CHECKED}
                 iconUnchecked={IMAGE.RADIO_UNCHECKED}
                 containerStyle={styles.marginTop16}
+                isButtonPressed={!timeSettingButtonChoosen}
+                onPress={() => chooseTimeSettingKind(!timeSettingButtonChoosen)}
             />
             <BroadCastButton 
                 title='Send Later'
                 iconChecked={IMAGE.RADIO_CHECKED}
                 iconUnchecked={IMAGE.RADIO_UNCHECKED}
                 containerStyle={styles.marginTop16}
+                isButtonPressed={timeSettingButtonChoosen}
+                onPress={() => chooseTimeSettingKind(!timeSettingButtonChoosen)}
             />
             <BroadCastDropdown 
                 style={[styles.marginTop16, styles.paddingHorizontal16]}
                 label='Date'
                 placeholder='mm/dd/yyyy'
+                enable={timeSettingButtonChoosen}
             />
             <BroadCastDropdown 
                 style={[styles.marginTop16, styles.paddingHorizontal16]}
                 label='Time'
                 placeholder='-- : --   --'
+                enable={timeSettingButtonChoosen}
             />
         </View>
     )

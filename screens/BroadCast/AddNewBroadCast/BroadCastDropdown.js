@@ -7,11 +7,13 @@ const IMAGE = {
 }
 
 export default function BroadCastDropdown(props) {
-    const { label, style, placeholder } = props
+    const { label, style, placeholder, enable, onPress } = props
     return (
         <View style={[styles.container, style]}>
             <Text style={styles.label}>{label}</Text>
             <TouchableOpacity 
+                activeOpacity={enable ? 0.5 : 1}
+                onPress={ enable && onPress()}
                 style={[styles.buttonContainer]}
             >
                 <Text style={styles.placeholder}>{placeholder}</Text>

@@ -4,8 +4,7 @@ import { StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri';
 
 export default function BroadCastButton(props) {
-    const { title, iconChecked, iconUnchecked, containerStyle } = props
-    const [isButtonPressed, toggleButton] = useState(false)
+    const { title, iconChecked, iconUnchecked, containerStyle, isButtonPressed, onPress } = props
     return (
         <Button
             icon={
@@ -13,7 +12,7 @@ export default function BroadCastButton(props) {
             }
             iconRight={true}
             title={title}
-            onPress={() => toggleButton(!isButtonPressed)}
+            onPress={() => onPress()}
             containerStyle={[styles.containerStyle, containerStyle]}
             buttonStyle={styles.buttonStyle}
             titleStyle={styles.titleStyle}
