@@ -4,6 +4,7 @@ import SvgUri from 'react-native-svg-uri';
 import TelveroTextInput from './common/TelveroTextInput.js'
 import BroadCastDropdown from './BroadCastDropdown.js'
 import TelveroAddingTags from './common/TelveroAddingTags.js'
+import BroadCastTextInform from '../BroadCastTextInform.js'
 
 const IMAGE = {
     RECIPIENTS: require('../../../assets/img/user.svg'),
@@ -27,15 +28,14 @@ export default function BroadCastRecipient(props) {
                 placeholder='Enter broadcast name'
             />
             <TelveroAddingTags 
-                containerStyle={styles.marginTop}
+                containerStyle={[styles.marginTop, styles.telveroAddingTags]}
                 label='Tags'
             />
-            <View style={styles.bottomContent}>
-                <SvgUri style={styles.tinyIcon} width="16" height="16" source={IMAGE.RECIPIENTS} />
-                <Text style={[styles.fontLato700Bold, styles.bottomText]}>Total number of recipients: 
-                    <Text style={styles.bottomRightText}>  0</Text>
-                </Text>
-            </View>
+            <BroadCastTextInform 
+                title='Total number of recipients'
+                value={0}
+                icon={IMAGE.RECIPIENTS}
+            />
         </View>
     )
 }
@@ -60,26 +60,9 @@ const styles = StyleSheet.create({
         marginTop: 12,
     },
     marginTop: {
-        marginTop: 16
+        marginTop: 16,
     },
-    bottomContent: {
-        marginTop: 23,
-        flexDirection: 'row',
-        alignItems: 'center',
+    telveroAddingTags: {
+        marginBottom: 23,
     },
-    bottomText: {
-        color: '#808080'
-    },
-    bottomRightText: {
-        color: '#333333'
-    },
-    tinyIcon: {
-        marginRight: 4
-    },
-    fontLato700Bold: {
-        fontFamily: 'Lato_700Bold',
-        fontSize: 14,
-        lineHeight: 16,
-        fontWeight:'bold',
-    }
 })

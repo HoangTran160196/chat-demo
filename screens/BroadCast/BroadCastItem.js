@@ -1,10 +1,8 @@
 import React from 'react'
 import { View, Image, Text, StyleSheet } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import ProcessTag from './ProcessTag.js'
 import { getStatusTheme } from '../../common/helper.js'
-import SvgUri from 'react-native-svg-uri';
-
+import BroadCastTextInform from './BroadCastTextInform.js'
 const IMAGE = {
     RECIPIENTS: require('../../assets/img/user.svg'),
     DATE: require('../../assets/img/calendar-gray.svg')
@@ -30,19 +28,17 @@ const BroadCastItem = props => {
                 <View style={styles.separator}></View>
 
                 <View style={styles.bottomContainer}>
-                    <View style={styles.bottomContent}>
-                        <SvgUri style={styles.tinyIcon} width="16" height="16" source={IMAGE.RECIPIENTS} />
-                        <Text style={[styles.fontLato700Bold, styles.bottomText]}>Recipients: 
-                            <Text style={styles.bottomRightText}> {recipients}</Text>
-                        </Text>
-                    </View>
+                    <BroadCastTextInform 
+                        title='Recipients'
+                        value={recipients}
+                        icon={IMAGE.RECIPIENTS}
+                    />
                     <View style={styles.smallSeparator}></View>
-                    <View style={styles.bottomContent}>
-                        <SvgUri style={styles.tinyIcon} width="16" height="16" source={IMAGE.DATE} />
-                        <Text style={[styles.fontLato700Bold, styles.bottomText]}>Sent date: 
-                            <Text style={styles.bottomRightText}> {sentDate}</Text>
-                        </Text>
-                    </View>
+                    <BroadCastTextInform 
+                        title='Sent date'
+                        value={sentDate}
+                        icon={IMAGE.DATE}
+                    />
                 </View>
 
             </View>
@@ -124,23 +120,4 @@ const styles = StyleSheet.create({
         backgroundColor: 'grey',
         marginHorizontal: 16,
     },
-    bottomContent: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    bottomText: {
-        color: '#808080'
-    },
-    bottomRightText: {
-        color: '#333333'
-    },
-    tinyIcon: {
-        marginRight: 4
-    },
-    fontLato700Bold: {
-        fontFamily: 'Lato_700Bold',
-        fontSize: 14,
-        lineHeight: 16,
-        fontWeight:'bold',
-    }
 })

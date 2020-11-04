@@ -23,13 +23,13 @@ export default function TelveroAddingTags(props) {
         <View style={containerStyle}>
             <Text style={styles.label}>{label}</Text>
             <View>
-                <FlatList 
+                {/* <FlatList 
                     numColumns = {0}
                     // columnWrapperStyle={{paddingVertical: 4}}
                     showsHorizontalScrollIndicator={false}
                     data={listTags}
                     renderItem={({item}) => handleRenderFilterItem(item)}
-                />
+                /> */}
                 <TouchableOpacity
                     onPress={() => addingTag([...listTags, {id: id++, data: 'Hoang'}])}
                 >

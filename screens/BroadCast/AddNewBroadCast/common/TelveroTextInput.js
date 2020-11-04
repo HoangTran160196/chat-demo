@@ -3,17 +3,28 @@ import { Input } from 'react-native-elements'
 import { StyleSheet } from 'react-native'
 
 export default function Telvero(props) {
-    const { containerStyle, label, placeholder, placeholderTextColor } = props
+    const { containerStyle,
+            inputContainer,
+            inputStyle,
+            label,
+            placeholder,
+            placeholderTextColor,
+            numberOfLines,
+            multiline
+        } = props
+
     return (
         <Input
             containerStyle={[styles.containerStyle, containerStyle]}
-            inputContainerStyle={styles.inputContainer}
-            inputStyle={styles.input}
+            inputContainerStyle={[styles.inputContainer, inputContainer]}
+            inputStyle={[styles.input, inputStyle]}
             labelStyle={styles.labelStyle}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
             label={label}
             renderErrorMessage={false}
+            numberOfLines={numberOfLines}
+            multiline={multiline}
         />
     )
 }
@@ -37,7 +48,7 @@ const styles = StyleSheet.create({
         fontStyle: 'normal',
         fontWeight: 'normal',
         fontSize: 16,
-        lineHeight: 22
+        lineHeight: 22,
     },
     labelStyle: {
         fontFamily: 'Lato_700Bold',

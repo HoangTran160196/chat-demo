@@ -3,10 +3,15 @@ import { ScrollView, View, Image, Text, StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri';
 import BroadCastName from './BroadCastName.js'
 import BroadCastRecipient from './BroadCastRecipient.js'
-BroadCastRecipient
+import BroadCastTimeSetting from './BroadCastTimeSetting.js'
+import BroadCastMessage from './BroadCastMessage.js'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 export default function AddNewBroadCast() {
     return (
-        <ScrollView style={styles.container}>
+        <KeyboardAwareScrollView 
+            style={styles.container}
+            enableOnAndroid={true}
+        >
             <BroadCastName 
                 note='Create a personalized message that will be sent to multiple people.'
                 style={styles.broadCastSectionContainer}
@@ -14,7 +19,13 @@ export default function AddNewBroadCast() {
             <BroadCastRecipient 
                 style={styles.broadCastSectionContainer}
             />
-        </ScrollView>
+            <BroadCastTimeSetting 
+                style={[styles.broadCastSectionContainer, styles.broadCastTimeSetting]}
+            />
+            <BroadCastMessage 
+                style={styles.broadCastSectionContainer}
+            />
+        </KeyboardAwareScrollView>
     )
 }
 
@@ -26,6 +37,9 @@ const styles = StyleSheet.create({
     broadCastSectionContainer: {
         padding: 16,
         marginBottom: 4,
+    },
+    broadCastTimeSetting: {
+        paddingBottom: 24
     }
 
 })
