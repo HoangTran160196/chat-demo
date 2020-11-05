@@ -25,7 +25,9 @@ const IMAGE = {
 
 export default function Login(props) {
     const [toScroll, setToScroll] = useState(false)
-
+    const [serverError, getServerError] = useState('')
+    const [emailInvalid, setEmailInvalid] = useState('Invalid email address')
+    const [passwordInvalid, setPasswordInvalid] = useState('Invalid email address')
     const _keyboardDidShow = () => {
         setToScroll(true)
     }
@@ -41,21 +43,42 @@ export default function Login(props) {
             scrollEnabled={toScroll}
             onKeyboardDidShow={() => _keyboardDidShow()}
             onKeyboardDidHide={() => _keyboardDidHide()}
+            onContentSizeChange={(width, height) => console.log(width, height)}
         >
             <StatusBar hidden />
             <ImageBackground source={IMAGE.BACKGROUND} style={styles.background}> 
                 <View style={styles.contentContainer}>
                     <Text style={styles.header}>Login to your account</Text>
 
+                    {serverError !== '' && (
+                        <View style={styles.serverErrorContainer}>
+                            <Text style={styles.serverErrorContent}>{serverError}</Text>
+                        </View>
+                    )}
+                    
                     <LoginTextInput
-                        style={styles.emailInputText}
+                        styleComponentContainer={
+                            {   
+                                marginTop: serverError !== '' ? 24 : 32,
+                                marginBottom: emailInvalid !== '' ? 18 : 16
+                            }
+                        }
                         placeholder='Enter email address'
                         source={IMAGE.EMAIL_ICON}
+                        hasError={emailInvalid !== ''}
+                        textError='Invalid email address'
                     />
                     <LoginTextInput
+                        styleComponentContainer={
+                            {
+                                marginBottom: passwordInvalid !== '' ? 18 : 16
+                            }
+                        }
                         placeholder='Enter password'
                         source={IMAGE.PASSWORD_ICON}
                         secureTextEntry={true}
+                        hasError={passwordInvalid !== ''}
+                        textError={passwordInvalid}
                     />
 
                     <View style={styles.rememberAndForgotPasswordArea}>
@@ -67,7 +90,11 @@ export default function Login(props) {
                         <LoginTextLink text='Forgot password?'/>
                     </View>
 
-                    <GreenButton title='Login' style={styles.buttonLogin}/>
+                    <GreenButton 
+                        title='Login' 
+                        style={styles.buttonLogin}
+                        onPress={() => getServerError('The account is not existing')}    
+                    />
 
                     <Text style={styles.bottomText}>
                         <Text style={styles.bottomLeftText}>Don’t have an account? </Text>
@@ -103,17 +130,15 @@ const styles = StyleSheet.create({
         lineHeight: 28.8,
         color: '#fff',
         marginTop: (width / ratio) * ratioHeight, // background image height devide for ratio
-        marginBottom: 32
     },
     rememberAndForgotPasswordArea: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 18,
         marginBottom: 26
     },
     emailInputText: {
-        marginBottom: 16
+        // marginBottom: 16
     },
     buttonLogin: {
         height: 48
@@ -127,5 +152,19 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 20,
         fontWeight: 'normal'
+    },
+    serverErrorContainer: {
+        backgroundColor: '#FF4D49',
+        borderRadius: 2,
+        height: 32,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 16,
+    },
+    serverErrorContent: {
+        fontFamily: 'Lato_400Regular',
+        fontSize: 14,
+        lineHeight: 20,
+        color: '#fff'
     }
 })

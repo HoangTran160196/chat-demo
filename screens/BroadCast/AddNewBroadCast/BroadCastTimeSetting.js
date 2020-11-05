@@ -15,7 +15,7 @@ export default function BroadCastTimeSetting(props) {
     const { style } = props
     return (
         <View style={[styles.container, style]}>
-            <Text style={styles.header}>Time Setting</Text>
+            <Text style={styles.header}>Time Setting *</Text>
             <View style={styles.dottedSeparator}></View>
             <BroadCastButton 
                 title='Send Now'
@@ -38,12 +38,16 @@ export default function BroadCastTimeSetting(props) {
                 label='Date'
                 placeholder='mm/dd/yyyy'
                 enable={timeSettingButtonChoosen}
+                hasError={true}
+                textError='Please input the contact number'
             />
             <BroadCastDropdown 
                 style={[styles.marginTop16, styles.paddingHorizontal16]}
                 label='Time'
                 placeholder='-- : --   --'
                 enable={timeSettingButtonChoosen}
+                hasError={true}
+                textError='Please input the contact number'
             />
         </View>
     )

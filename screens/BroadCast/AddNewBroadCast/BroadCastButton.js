@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button } from 'react-native-elements';
+import { Button } from 'react-native-elements'
 import { StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri';
 

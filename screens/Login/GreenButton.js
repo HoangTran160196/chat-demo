@@ -1,22 +1,22 @@
 import React from 'react'
-import { Text, TouchableOpacity, StyleSheet,  } from 'react-native'
+import { StyleSheet } from 'react-native'
+import { Button } from 'react-native-elements'
 
 export default function GreenButton(props) {
-    const { title, style } = props
+    const { title, onPress, style } = props
     return (
-        <TouchableOpacity style={[styles.buttonContainer, style]}>
-            <Text style={styles.buttonTitle}>{title}</Text>
-        </TouchableOpacity>
+        <Button
+            containerStyle={[style]}
+            titleStyle={styles.buttonTitle}
+            buttonStyle={[styles.buttonStyle, style]}
+            title={title}
+            onPress={() => onPress()}
+        />
+      
     )
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
-        backgroundColor: '#1ACE77',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 4
-    },
     buttonTitle: {
         fontFamily: 'Lato_700Bold',
         fontWeight: '700',
@@ -24,5 +24,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 22.4,
         color: '#fff'
+    },
+    buttonStyle: {
+        backgroundColor: '#1ACE77',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 4,
     }
 })

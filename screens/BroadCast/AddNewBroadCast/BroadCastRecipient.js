@@ -16,8 +16,10 @@ export default function BroadCastRecipient(props) {
             <View style={styles.dottedSeparator}></View>
             <BroadCastDropdown 
                 style={styles.marginTop}
-                label='Individuals'
+                label='Individuals *'
                 placeholder='Enter phone numbers'
+                hasError={true}
+                textError='Please input the contact number'
             />
             <BroadCastDropdown 
                 style={styles.marginTop}

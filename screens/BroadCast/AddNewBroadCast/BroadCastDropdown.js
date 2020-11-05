@@ -1,24 +1,34 @@
 import React, { useState } from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri';
+import TelveroValidateError from './common/TelveroValidateError.js'
 
 const IMAGE = {
     DROPDOWN: require('../../../assets/img/chevron-down.svg')
 }
 
 export default function BroadCastDropdown(props) {
-    const { label, style, placeholder, enable = true, onPress } = props
+    const {
+        label,
+        style,
+        placeholder,
+        enable = true,
+        onPress,
+        hasError,
+        textError
+    } = props
     return (
         <View style={[styles.container, style]}>
             <Text style={styles.label}>{label}</Text>
             <TouchableOpacity 
                 activeOpacity={enable ? 0.5 : 1}
                 // onPress={ enable && onPress()}
-                style={[styles.buttonContainer]}
+                style={[styles.buttonContainer, hasError && styles.error]}
             >
                 <Text style={styles.placeholder}>{placeholder}</Text>
                 <SvgUri style={styles.tinyIcon} source={IMAGE.DROPDOWN} />
             </TouchableOpacity>
+            {hasError && <TelveroValidateError textError={textError}/>}
         </View>
     )
 }
@@ -59,5 +69,11 @@ const styles = StyleSheet.create({
     },
     pickerItem: {
         height: 150
+    },
+    error: {
+        borderWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#FF4D49',
+        borderRadius: 4  
     }
 })

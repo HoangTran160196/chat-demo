@@ -7,7 +7,7 @@ export default function BroadCastName(props) {
     return (
         <View style={[styles.container, style]}>
             <TelveroTextInput 
-                label='Broadcast Name'
+                label='Broadcast Name *'
                 placeholder='Enter broadcast name'
                 placeholderTextColor='#B0B0B0'
             />
