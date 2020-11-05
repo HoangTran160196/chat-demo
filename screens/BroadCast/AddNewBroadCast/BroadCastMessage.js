@@ -6,13 +6,14 @@ export default function BroadCastMessage(props) {
     return (
         <View style={[styles.containerStyle, style]}>
             <TelveroTextInput 
-                label='Message *'
+                label='Message'
                 placeholder='Enter message'
                 placeholderTextColor='#B0B0B0'
                 inputContainer={styles.inputContainer}
                 inputStyle={styles.inputStyle}
                 numberOfLines={8}
                 multiline={true}
+                isRequired={true}
             />
         </View>
     )

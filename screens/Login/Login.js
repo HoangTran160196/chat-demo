@@ -21,6 +21,7 @@ const IMAGE = {
     PASSWORD_ICON: require('../../assets/img/passwordIcon.svg'),
     BACKGROUND: require('../../assets/img/loginBackground.png'),
     CHECKBOX_UNCHECKED: require('../../assets/img/checkbox-uncheck.svg'),
+    CHECKBOX_CHECKED: require('../../assets/img/checkbox-check.svg'),
 }
 
 export default function Login(props) {
@@ -28,6 +29,8 @@ export default function Login(props) {
     const [serverError, getServerError] = useState('')
     const [emailInvalid, setEmailInvalid] = useState('Invalid email address')
     const [passwordInvalid, setPasswordInvalid] = useState('Invalid email address')
+    const [isRememberMe, setRememberMe] = useState(false)
+    
     const _keyboardDidShow = () => {
         setToScroll(true)
     }
@@ -84,8 +87,10 @@ export default function Login(props) {
                     <View style={styles.rememberAndForgotPasswordArea}>
                         <LoginCheckbox
                             title='Remember me'
-                            checkedIcon={IMAGE.CHECKBOX_UNCHECKED}
+                            checkedIcon={IMAGE.CHECKBOX_CHECKED}
                             uncheckedIcon={IMAGE.CHECKBOX_UNCHECKED}
+                            checked={isRememberMe}
+                            onPress={() => setRememberMe(!isRememberMe)}
                         />
                         <LoginTextLink text='Forgot password?'/>
                     </View>

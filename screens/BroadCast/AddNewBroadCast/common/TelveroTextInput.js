@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from 'react-native-elements'
-import { StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 
 export default function Telvero(props) {
     const { containerStyle,
@@ -10,7 +10,8 @@ export default function Telvero(props) {
             placeholder,
             placeholderTextColor,
             numberOfLines,
-            multiline
+            multiline,
+            isRequired,
         } = props
 
     return (
@@ -21,7 +22,11 @@ export default function Telvero(props) {
             labelStyle={styles.labelStyle}
             placeholder={placeholder}
             placeholderTextColor={placeholderTextColor}
-            label={label}
+            label={(
+                <Text>{label}
+                    {isRequired && (<Text style={styles.required}> *</Text>)}
+                </Text>
+            )}
             renderErrorMessage={false}
             numberOfLines={numberOfLines}
             multiline={multiline}
@@ -59,5 +64,8 @@ const styles = StyleSheet.create({
     },
     errorStyle: {
         margin: 0
+    },
+    required: {
+        color: '#FF4D49'
     }
 })

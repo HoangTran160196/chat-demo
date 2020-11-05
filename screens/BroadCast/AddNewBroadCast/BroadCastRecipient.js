@@ -6,6 +6,7 @@ import BroadCastTextInform from '../BroadCastTextInform.js'
 
 const IMAGE = {
     RECIPIENTS: require('../../../assets/img/user.svg'),
+    DROPDOWN: require('../../../assets/img/chevron-down.svg'),
 }
 
 export default function BroadCastRecipient(props) {
@@ -16,15 +17,18 @@ export default function BroadCastRecipient(props) {
             <View style={styles.dottedSeparator}></View>
             <BroadCastDropdown 
                 style={styles.marginTop}
-                label='Individuals *'
+                label='Individuals'
                 placeholder='Enter phone numbers'
                 hasError={true}
                 textError='Please input the contact number'
+                icon={IMAGE.DROPDOWN}
+                isRequired={true}
             />
             <BroadCastDropdown 
                 style={styles.marginTop}
                 label='From Previous Broadcast'
                 placeholder='Enter broadcast name'
+                icon={IMAGE.DROPDOWN}
             />
             <TelveroAddingTags 
                 containerStyle={[styles.marginTop, styles.telveroAddingTags]}

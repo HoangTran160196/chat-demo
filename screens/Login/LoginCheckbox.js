@@ -4,7 +4,7 @@ import { CheckBox } from 'react-native-elements'
 import SvgUri from 'react-native-svg-uri'
 
 export default function LoginCheckbox(props) {
-    const { title, checkedIcon, uncheckedIcon } = props
+    const { title, checkedIcon, uncheckedIcon, checked, onPress } = props
     return (
         <CheckBox
             center
@@ -13,7 +13,8 @@ export default function LoginCheckbox(props) {
             uncheckedIcon={<SvgUri source={uncheckedIcon} />}
             containerStyle={styles.containerStyle}
             textStyle={styles.textStyle}
-            // checked={this.state.checked}
+            onPress={() => onPress()}
+            checked={checked}
         />
     )
 }

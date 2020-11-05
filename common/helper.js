@@ -64,3 +64,13 @@ export function getStyleFromTheme(theme) {
     }
     return { backgroundColor, justifyContent, marginRight, marginLeft }
 }
+
+export const getDate = (date) => date && `${date.getMonth() + 1}.${date.getDate()}.${date.getFullYear()}`
+export const formatTime = (time) => {
+    if ( time == null || time == undefined ) return
+    let hours = time.getHours()
+    let mins = time.getMinutes()
+    let am_pm = hours > 12 ? 'PM' : 'AM'
+    hours = am_pm === 'PM' ? hours - 12 : hours
+    return `0${hours} : ${mins} ${am_pm}`
+}
