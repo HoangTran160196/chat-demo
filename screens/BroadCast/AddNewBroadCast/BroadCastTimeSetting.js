@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import BroadCastButton from './BroadCastButton.js'
+import BroadCastTimeSettingButton from './BroadCastTimeSettingButton.js'
 import BroadCastDropdown from './BroadCastDropdown.js'
 import DateTimePicker from '@react-native-community/datetimepicker'
 import { getDate, formatTime } from '../../../common/helper.js'
@@ -58,7 +58,7 @@ export default function BroadCastTimeSetting(props) {
         <View style={[styles.container, style]}>
             <Text style={styles.header}>Time Setting</Text>
             <View style={styles.dottedSeparator}></View>
-            <BroadCastButton 
+            <BroadCastTimeSettingButton 
                 title='Send Now'
                 iconChecked={IMAGE.RADIO_CHECKED}
                 iconUnchecked={IMAGE.RADIO_UNCHECKED}
@@ -66,7 +66,7 @@ export default function BroadCastTimeSetting(props) {
                 isButtonPressed={!timeSettingButtonChoosen}
                 onPress={() => toggleTimeSetting()}
             />
-            <BroadCastButton 
+            <BroadCastTimeSettingButton 
                 title='Send Later'
                 iconChecked={IMAGE.RADIO_CHECKED}
                 iconUnchecked={IMAGE.RADIO_UNCHECKED}
@@ -79,7 +79,7 @@ export default function BroadCastTimeSetting(props) {
                 label='Date'
                 icon={IMAGE.CALENDAR}
                 placeholder='mm/dd/yyyy'
-                title={date && getDate(date)}
+                value={date && getDate(date)}
                 enable={timeSettingButtonChoosen}
                 hasError={true}
                 textError='Please input the contact number'
@@ -91,7 +91,7 @@ export default function BroadCastTimeSetting(props) {
                 label='Time'
                 icon={IMAGE.TIME}
                 placeholder='-- : --   --'
-                title={date && formatTime(date)}
+                value={date && formatTime(date)}
                 enable={timeSettingButtonChoosen}
                 hasError={true}
                 textError='Please input the contact number'

@@ -70,7 +70,7 @@ export const formatTime = (time) => {
     if ( time == null || time == undefined ) return
     let hours = time.getHours()
     let mins = time.getMinutes()
-    let am_pm = hours > 12 ? 'PM' : 'AM'
-    hours = am_pm === 'PM' ? hours - 12 : hours
-    return `0${hours} : ${mins} ${am_pm}`
+    let am_pm = hours >= 12 ? 'PM' : 'AM'
+    hours = am_pm === 'PM' && hours !== 12 ? hours - 12 : hours
+    return `${hours >= 10 ? '' : '0'}${hours} : ${mins < 10 ? '0' : ''}${mins} ${am_pm}`
 }

@@ -3,7 +3,7 @@ import { Button } from 'react-native-elements'
 import { StyleSheet } from 'react-native'
 import SvgUri from 'react-native-svg-uri';
 
-export default function BroadCastButton(props) {
+export default function BroadCastTimeSettingButton(props) {
     const { title, iconChecked, iconUnchecked, containerStyle, isButtonPressed, onPress } = props
     return (
         <Button

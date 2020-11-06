@@ -13,13 +13,12 @@ export default function BroadCastDropdown(props) {
         onPress,
         hasError,
         textError,
-        title,
+        value,
         icon,
         isRequired
     } = props
     return (
         <View style={[styles.container, style]}>
-            {console.log(title)}
             <Text style={styles.label}>{label}
                 {isRequired && <Text style={styles.required}> *</Text>}
             </Text>
@@ -28,10 +27,10 @@ export default function BroadCastDropdown(props) {
                     <SvgUri style={styles.tinyIcon} source={icon} />
                 }
                 iconRight={true}
-                title={title ? title : placeholder}
+                title={value ? value : placeholder}
                 onPress={() => onPress()}
                 buttonStyle={[styles.buttonContainer, hasError && styles.error]}
-                titleStyle={[styles.textStlye, title ? styles.title : styles.placeholder]}
+                titleStyle={[styles.textStlye, value ? styles.title : styles.placeholder]}
                 disabledStyle={styles.disabledStyle}
                 disabled={!enable}
             />

@@ -6,9 +6,9 @@ import BroadCastItem from './BroadCastItem.js'
 
 export default function BroadCastList() {
     const [filterList, updateFilterList] = useState([
-        {key: '1', data: 'All Status'},
-        {key: '2', data: 'Sent Date'},
-        {key: '3', data: 'Deliveries Rate'}
+        {key: '0', data: 'All Status', selected: false},
+        {key: '1', data: 'Sent Date', selected: false},
+        {key: '2', data: 'Deliveries Rate', selected: false}
     ])
 
     const [broadCastList, updateBroadCastList] = useState([
@@ -93,9 +93,21 @@ export default function BroadCastList() {
         }
     ])
 
+    const selectedFilter = filter => {
+        const index = filterList.findIndex(item => item.key == filter.key)
+        const filterSelected = filterList[index]
+        filterSelected.selected = !filterSelected.selected
+        updateFilterList([...filterList])
+    }
+
     const handleRenderFilterItem = (item) => {
+        console.log(item.selected)
         return (
-            <FilterItem content={item.data}/>
+            <FilterItem
+                content={item.data}
+                selected={item.selected}
+                onPress={() => selectedFilter(item)}
+            />
         )
     }
 

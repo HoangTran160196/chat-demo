@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import BroadCastDropdown from './BroadCastDropdown.js'
 import TelveroAddingTags from './common/TelveroAddingTags.js'
 import BroadCastTextInform from '../BroadCastTextInform.js'
+import TelveroDropdown from '../../BroadCast/AddNewBroadCast/common/TelveroDropdown.js'
 
 const IMAGE = {
     RECIPIENTS: require('../../../assets/img/user.svg'),
@@ -10,7 +11,14 @@ const IMAGE = {
 }
 
 export default function BroadCastRecipient(props) {
+    const [isDropdownShow, toggleDropdown] = useState(false)
     const { style } = props
+    const list = [
+        {id: '0', title: 'Hoang', selected: false},
+        {id: '1', title: 'Hoang', selected: false},
+        {id: '2', title: 'Hoang', selected: false},
+        {id: '3', title: 'Hoang', selected: false}
+    ]
     return (
         <View style={[styles.container, style]}>
             <Text style={styles.header}>Recipient</Text>
@@ -19,10 +27,15 @@ export default function BroadCastRecipient(props) {
                 style={styles.marginTop}
                 label='Individuals'
                 placeholder='Enter phone numbers'
-                hasError={true}
-                textError='Please input the contact number'
+                // hasError={true}
+                // textError='Please input the contact number'
                 icon={IMAGE.DROPDOWN}
                 isRequired={true}
+                onPress={() => toggleDropdown(!isDropdownShow)}
+            />
+            <TelveroDropdown 
+                show={isDropdownShow}
+                list={list}
             />
             <BroadCastDropdown 
                 style={styles.marginTop}

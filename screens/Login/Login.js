@@ -11,6 +11,7 @@ import LoginTextLink from './LoginTextLink.js'
 import GreenButton from './GreenButton.js'
 import LoginCheckbox from './LoginCheckbox.js'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import LoginServerError from './LoginServerError.js'
 
 const {width, height} = Dimensions.get('window');
 const ratioHeight = 278 / 667
@@ -54,9 +55,7 @@ export default function Login(props) {
                     <Text style={styles.header}>Login to your account</Text>
 
                     {serverError !== '' && (
-                        <View style={styles.serverErrorContainer}>
-                            <Text style={styles.serverErrorContent}>{serverError}</Text>
-                        </View>
+                        <LoginServerError serverError={serverError} />
                     )}
                     
                     <LoginTextInput
@@ -158,18 +157,4 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         fontWeight: 'normal'
     },
-    serverErrorContainer: {
-        backgroundColor: '#FF4D49',
-        borderRadius: 2,
-        height: 32,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 16,
-    },
-    serverErrorContent: {
-        fontFamily: 'Lato_400Regular',
-        fontSize: 14,
-        lineHeight: 20,
-        color: '#fff'
-    }
 })

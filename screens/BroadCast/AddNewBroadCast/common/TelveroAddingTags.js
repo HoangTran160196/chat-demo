@@ -33,7 +33,7 @@ export default function TelveroAddingTags(props) {
             <View style={styles.tagMainContainer}>
                 { listTags.map(tag => <TelveroTags tag={tag.data}/>)}
                 <TouchableOpacity
-                    onPress={() => addingTag([...listTags, {id: id++, data: 'Hoang'}])}
+                    onPress={() => addingTag([...listTags, {id: 10, data: 'Hoang'}])}
                 >
                     <SvgUri source={IMAGE.ADDING} />
                 </TouchableOpacity>
