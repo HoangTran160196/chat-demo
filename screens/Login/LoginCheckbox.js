@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { Image, StyleSheet } from 'react-native'
 import { CheckBox } from 'react-native-elements'
 import SvgUri from 'react-native-svg-uri'
 
@@ -9,8 +9,8 @@ export default function LoginCheckbox(props) {
         <CheckBox
             center
             title={title}
-            checkedIcon={<SvgUri source={checkedIcon}/>}
-            uncheckedIcon={<SvgUri source={uncheckedIcon} />}
+            checkedIcon={<Image style={styles.tinyIcon} source={checkedIcon}/>}
+            uncheckedIcon={<Image style={styles.tinyIcon} source={uncheckedIcon} />}
             containerStyle={styles.containerStyle}
             textStyle={styles.textStyle}
             onPress={() => onPress()}
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         padding: 0,
         marginLeft: 0,
         backgroundColor: 'transparent',
-        borderWidth: 0
+        borderWidth: 0,
     },
     textStyle: {
         color: '#fff',
@@ -35,5 +35,10 @@ const styles = StyleSheet.create({
         lineHeight: 14,
         marginLeft: 5,
         marginRight: 0 // reset default margin right default
+    },
+    tinyIcon: {
+        width: 16,
+        height: 16,
+        borderRadius: 4
     }
 })
